@@ -6,8 +6,6 @@ Llamada a la función para iniciar el proceso
 -------------------- 0 --------------------
  */
 
-
-
 // 1. Declaración de variables, constantes y Arrays
 
 // Variables:
@@ -56,7 +54,17 @@ function iniciarSesion() {
     let confirmar = confirm("¿Quieres iniciar sesión?");
     if (confirmar) {
         nombreUsuario = prompt("Por favor, ingresa tu nombre:");
-        edadUsuario = prompt("Por favor, ingresa tu edad:");
+        
+        // Validación para asegurar que se ingrese solo un número
+        while (true) {
+            edadUsuario = prompt("Por favor, ingresa tu edad (números):");
+            if (/^\d+$/.test(edadUsuario)) { // Expresión regular que valida solo números enteros positivos
+                edadUsuario = Number(edadUsuario); // Convertir la entrada a un número
+                break;
+            } else {
+                alert("Por favor, ingresa un número válido para la edad.");
+            }
+        }
 
         console.log("Usuario ingresado:", nombreUsuario);
         console.log("Edad ingresada:", edadUsuario);
@@ -67,4 +75,5 @@ function iniciarSesion() {
         alert("Has cancelado el inicio de sesión.");
     }
 }
+
 
