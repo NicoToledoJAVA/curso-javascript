@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Test de IMC</title>
+    <link rel="stylesheet" href="../css/main.css">
+   
+</head>
+<body class="res-body">
+    <div class="result-container">
+        <h1 class= "result-tit">Resultados del Test de IMC</h1>
+        <p><span class="highlight">Nombre:</span> <span id="nombre"></span></p>
+        <p><span class="highlight">Peso:</span> <span id="peso"></span> kg</p>
+        <p><span class="highlight">Estatura:</span> <span id="estatura"></span> cm</p>
+        <p><span class="highlight">IMC:</span> <span id="imc"></span></p>
+        <p><span class="highlight">Diagnóstico:</span> <span id="diagnostico"></span></p>
+        <p><span class="invisible">Recomendación:</span> <span id="recomendacion"></span> </p>
+        <div class="modal-footer">
+            <button  id = "boton-verde" class="button button-green" onclick="verDoctor()">Consultar</button>                        
+        </div>
+        <div class="modal-footer">
+            <button class="custom-button" onclick="window.location.reload();">Recargar Página</button>
+        </div>
+        
+     
+    </div>
+    <script src="../scripts/resultados.js"></script>
+</body>
+</html>
