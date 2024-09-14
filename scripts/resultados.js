@@ -21,7 +21,7 @@ function verDoctor() {
     if (imc) {
 
         // URL de la API con el IMC como parámetro de consulta
-        const url = `http://200.45.208.91:8080/medicina/recomendacion?imc=${encodeURIComponent(imc)}`;
+        const url = `https://vps-3858808-x.dattaweb.com:8443/medicina/recomendacion?imc=${encodeURIComponent(imc)}`;
         // Hacer la solicitud fetch
         fetch(url)
             .then(response => {
