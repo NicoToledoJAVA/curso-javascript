@@ -1,32 +1,33 @@
 Proyecto de Consulta Médica
-Este proyecto simula una plataforma médica con tres etapas interactivas: ingreso de datos del paciente, test de visión (daltonismo), y visualización de resultados junto con información de médicos. A continuación se detalla el funcionamiento y la estructura del proyecto.
+Bienvenido al proyecto de consulta médica. Esta aplicación web simula un sistema interactivo para evaluar el IMC del paciente, realizar un test de daltonismo y visualizar información de médicos.
 
 Descripción
-El proyecto está compuesto por tres páginas HTML:
+El proyecto está compuesto por tres páginas HTML, cada una con funciones específicas:
 
-index.html: En esta página, el usuario ingresa sus datos personales, como nombre, peso, estatura y edad. Estos datos se almacenan en el localStorage del navegador para ser utilizados en las siguientes etapas.
+index.html: Permite al usuario ingresar su nombre, peso, estatura y edad. Estos datos se almacenan en el localStorage para su uso en etapas posteriores.
 
-vision.html: Aquí se realiza un test de daltonismo, donde el usuario mueve el mouse sobre un área para identificar colores. Además, se realiza una solicitud para obtener información sobre médicos, que se muestra dinámicamente en la página.
+vision.html: Realiza un test de daltonismo. El usuario mueve el mouse sobre un área para identificar colores y el sistema muestra tarjetas con información de médicos obtenida a través de un fetch.
 
-resultados.html: En esta página, se muestran los resultados del test de IMC calculado en base a los datos del paciente almacenados en el localStorage. También se realiza una consulta a un endpoint para obtener recomendaciones médicas basadas en el IMC.
+resultados.html: Muestra el IMC calculado con base en los datos del localStorage y realiza una consulta para obtener recomendaciones médicas personalizadas.
 
 Funcionalidades
 Fetching de Datos
-EndPoint 1: https://vps-3858808-x.dattaweb.com:8443/medicina/getMedics
-
-Este endpoint se utiliza para obtener la lista de médicos. La respuesta se almacena en el array medicosArray, que luego se utiliza para crear y mostrar tarjetas con la información de los médicos.
-EndPoint 2: https://vps-3858808-x.dattaweb.com:8443/medicina/recomendacion?imc=${encodeURIComponent(imc)}
-
-Este endpoint proporciona recomendaciones médicas basadas en el IMC del paciente. La variable imc se obtiene del localStorage y se utiliza en la consulta para obtener recomendaciones personalizadas.
+Endpoint 1: Médicos
+URL: https://vps-3858808-x.dattaweb.com:8443/medicina/getMedics
+Descripción: Obtiene la lista de médicos y almacena la información en un array medicosArray. Luego, se crean y muestran tarjetas con la información de cada médico.
+Endpoint 2: Recomendaciones Médicas
+URL: https://vps-3858808-x.dattaweb.com:8443/medicina/recomendacion?imc=${encodeURIComponent(imc)}
+Descripción: Proporciona recomendaciones médicas basadas en el IMC del paciente. La variable imc se obtiene del localStorage y se utiliza en la consulta para obtener recomendaciones personalizadas.
 Modificaciones de Event Handling
-Se eliminó el atributo onClick en los botones del HTML y se implementó el manejo de eventos en el archivo JavaScript:
-index.html: Se eliminó el onClick de los botones con id="ingresar" e id="enviar", y se agregaron los eventos en el archivo main.js.
-vision.html: Se eliminó el onClick del botón con id="continuar" y se agregó el evento en el archivo vision.js.
-resultados.html: Se eliminó el onClick de los botones con id="recargar" e id="boton-verde", y se agregaron los eventos en el archivo resultados.js.
+Se eliminaron los atributos onClick de los botones en los archivos HTML y se implementaron los manejadores de eventos en los archivos JavaScript correspondientes:
+
+index.html: Eventos para los botones con id="ingresar" e id="enviar" son gestionados en main.js.
+vision.html: El botón con id="continuar" es manejado en vision.js.
+resultados.html: Los botones con id="recargar" e id="boton-verde" son gestionados en resultados.js.
 Estructura del Proyecto
 index.html: Recoge los datos del paciente.
-vision.html: Realiza el test de daltonismo y muestra médicos desde un array fetcheado.
-resultados.html: Muestra los resultados del IMC y realiza una consulta para obtener una recomendación médica.
+vision.html: Realiza el test de daltonismo y muestra médicos obtenidos mediante fetch.
+resultados.html: Presenta los resultados del IMC y realiza una consulta para obtener una recomendación médica.
 Instalación y Uso
 Clona el repositorio:
 bash
@@ -38,7 +39,7 @@ Copiar código
 cd tu-repo
 Abre los archivos index.html, vision.html y resultados.html en un navegador web para probar las funcionalidades.
 Contribuciones
-Las contribuciones son bienvenidas. Si deseas mejorar el proyecto, por favor sigue estos pasos:
+Las contribuciones son bienvenidas. Para contribuir:
 
 Realiza un fork del repositorio.
 Crea una rama para tu funcionalidad (git checkout -b mi-nueva-funcionalidad).
