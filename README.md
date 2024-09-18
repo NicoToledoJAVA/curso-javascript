@@ -1,77 +1,129 @@
-Página Médica Interactiva
+# Página Médica Interactiva (Proyecto final - Curso JAVASCRIPT)
+
 Este proyecto es una página médica interactiva que incluye varias funcionalidades como pruebas de daltonismo, visualización de médicos y recomendaciones médicas. Utiliza HTML, CSS, JavaScript y Bootstrap para crear una experiencia de usuario dinámica y responsiva.
 
-Tabla de Contenidos
-Descripción
-Instalación
-Uso
-Endpoints
-Estructura del Proyecto
-Contribución
-Contacto
-Descripción
+## Tabla de Contenidos
+
+- [Descripción](#descripción)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [LocalStorage y Fetch](#localstorage-y-fetch)
+- [Endpoints](#endpoints)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Contribución](#contribución)
+- [Contacto](#contacto)
+
+## Descripción
+
 Este proyecto consta de tres páginas principales:
 
-index.html: Donde se recopilan los datos del paciente.
-vision.html: Realiza un test de daltonismo y muestra médicos obtenidos mediante una API.
-resultados.html: Toma variables del localStorage y realiza una consulta médica utilizando otra API.
-Instalación
-Clona este repositorio en tu máquina local:
+1. **index.html**: Donde se recopilan los datos del paciente y se almacenan en local localStorage.
+2. **vision.html**: Realiza un test de daltonismo y muestra médicos obtenidos mediante el fetcheo a un Endpoint de una API.
+3. **resultados.html**: Toma variables del `localStorage` y realiza una consulta médica utilizando otro fetcheo a otro Endpoint de la misma API.
 
-bash
-Copiar código
-git clone https://github.com/tu-usuario/tu-repositorio.git
-Navega al directorio del proyecto:
+## Instalación
 
-bash
-Copiar código
-cd tu-repositorio
-Abre los archivos HTML en tu navegador para visualizar el proyecto.
+1. Clona este repositorio en tu máquina local:
 
-Uso
-index.html: Completa el formulario con los datos del paciente y haz clic en "Ingresar" para continuar.
-vision.html: Mueve el mouse por la caja de colores para realizar el test de daltonismo. La información sobre los médicos se mostrará a medida que se obtenga de la API.
-resultados.html: Accede a esta página después de haber completado el test de IMC para recibir recomendaciones médicas basadas en el índice calculado.
-Endpoints
-Endpoint 1: Obtener Médicos
+    ```bash
+    git clone https://github.com/tu-usuario/tu-repositorio.git
+    ```
 
-plaintext
-Copiar código
-https://vps-3858808-x.dattaweb.com:8443/medicina/getMedics
-Este endpoint devuelve una lista de médicos que se muestra en la página vision.html.
+2. Navega al directorio del proyecto:
 
-Endpoint 2: Obtener Recomendación Médica
+    ```bash
+    cd tu-repositorio
+    ```
 
-plaintext
-Copiar código
-https://vps-3858808-x.dattaweb.com:8443/medicina/recomendacion?imc=${encodeURIComponent(imc)}
-Este endpoint proporciona recomendaciones médicas basadas en el IMC. La variable imc se establece dinámicamente según los datos ingresados.
+3. Abre los archivos HTML en tu navegador para visualizar el proyecto.
 
-Estructura del Proyecto
-index.html:
+## Uso
 
-Página de entrada donde se recogen los datos del paciente.
-Eventos de botón manejados mediante JavaScript para controlar la navegación.
-vision.html:
+1. **index.html**: Completa el formulario con tus datos de paciente y haz clic en "Ingresar" para continuar.
+2. **vision.html**: Mueve el mouse por la caja de colores para realizar el test de daltonismo. La información sobre los médicos se mostrará abajo, a medida que se obtenga de la API.
+3. **resultados.html**: Accederás a esta página después de haber completado el test de IMC para recibir recomendaciones médicas basadas en el índice calculado.
 
-Página de test de daltonismo con interacción de mouse.
-Obtención de datos de médicos mediante una API.
-Las tarjetas de médicos se generan dinámicamente a partir del array medicosArray.
-resultados.html:
+## LocalStorage y Fetch
 
-Muestra recomendaciones médicas basadas en el IMC almacenado en localStorage.
-Botones manejados por eventos JavaScript para redirigir y recargar la página.
-Contribución
-Si deseas contribuir a este proyecto, sigue estos pasos:
+### LocalStorage
 
-Realiza un fork del repositorio.
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-Realiza tus cambios y confirma (git commit -am 'Añadir nueva funcionalidad').
-Envía tus cambios al repositorio remoto (git push origin feature/nueva-funcionalidad).
-Abre un pull request.
-Contacto
+El proyecto utiliza `localStorage` para almacenar información del paciente y recuperarla en páginas posteriores. Esto permite mantener la información del paciente entre las diferentes páginas del proyecto.
+
+### Fetch
+
+Para cumplir con la consigna, se realizó lo siguiente:
+
+**1. Se agregó la declaración expresa de un array al final de `vision.js`:**
+    ```javascript
+    let medicosArray = data;
+    ```
+
+**2. Luego, se iteró el array con `forEach`:**
+    ```javascript
+    medicosArray.forEach(medico => createCard(medico));
+    ```
+
+**3. Se manejan dos fetches desde los endpoints:**
+   - El primer fetch obtiene la lista de médicos.
+   - El segundo fetch realiza una consulta de diagnóstico basada en el índice de masa corporal (IMC).
+
+## Endpoints
+
+- **Endpoint 1: Obtener Médicos**
+
+    ```plaintext
+    https://vps-3858808-x.dattaweb.com:8443/medicina/getMedics
+    ```
+
+    Este endpoint devuelve una lista de médicos que se muestra en la página `vision.html`.
+
+- **Endpoint 2: Obtener Recomendación Médica**
+
+    ```plaintext
+    https://vps-3858808-x.dattaweb.com:8443/medicina/recomendacion?imc=${encodeURIComponent(imc)}
+    ```
+
+  **Nota**:
+
+  Este último endpoint tiene un elemento dinámico; la variable "imc" se establece en función de los datos ingresados y se fetchea.
+
+## Tecnologías
+
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+- Fetch API
+
+
+## Estructura del Proyecto
+
+1. **index.html**: 
+    - Página de entrada donde se recogen los datos del paciente.
+    - Eventos de botón manejados mediante JavaScript para controlar la navegación.
+
+2. **vision.html**: 
+    - Página de test de daltonismo con interacción de mouse.
+    - Obtención de datos de médicos mediante una API.
+    - Las tarjetas de médicos se generan dinámicamente a partir del array `medicosArray`.
+
+3. **resultados.html**: 
+    - Muestra recomendaciones médicas basadas en el IMC almacenado en `localStorage`.
+    - Botones manejados por eventos JavaScript para redirigir y recargar la página.
+
+## Calificación:
+
+Si deseas calificar a este proyecto, sigue estos pasos:
+
+1. Abre tu panel de docente en Coder House.
+2. Ve a las correciones pendientes.
+3. Corrige a Nico TOLEDO con un 10 (DIEZ).
+4. ¡Tené un buen día!
+
+## Contacto
+
 Para cualquier consulta o sugerencia, puedes contactar a:
 
-Nombre: Tu Nombre
-Email: tu-email@example.com
-GitHub: tu-usuario
+- **Nombre:** Nico TOLEDO
+- **Email:** nicotole@gmail.com
+- **GitHub:** [NicoToledoJAVA](https://github.com/NicoToledoJAVA)
