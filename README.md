@@ -1,49 +1,77 @@
-Proyecto de Consulta Médica
-Bienvenido al proyecto de consulta médica. Esta aplicación web simula un sistema interactivo para evaluar el IMC del paciente, realizar un test de daltonismo y visualizar información de médicos.
+Página Médica Interactiva
+Este proyecto es una página médica interactiva que incluye varias funcionalidades como pruebas de daltonismo, visualización de médicos y recomendaciones médicas. Utiliza HTML, CSS, JavaScript y Bootstrap para crear una experiencia de usuario dinámica y responsiva.
 
+Tabla de Contenidos
 Descripción
-El proyecto está compuesto por tres páginas HTML, cada una con funciones específicas:
-
-index.html: Permite al usuario ingresar su nombre, peso, estatura y edad. Estos datos se almacenan en el localStorage para su uso en etapas posteriores.
-
-vision.html: Realiza un test de daltonismo. El usuario mueve el mouse sobre un área para identificar colores y el sistema muestra tarjetas con información de médicos obtenida a través de un fetch.
-
-resultados.html: Muestra el IMC calculado con base en los datos del localStorage y realiza una consulta para obtener recomendaciones médicas personalizadas.
-
-Funcionalidades
-Fetching de Datos
-Endpoint 1: Médicos
-URL: https://vps-3858808-x.dattaweb.com:8443/medicina/getMedics
-Descripción: Obtiene la lista de médicos y almacena la información en un array medicosArray. Luego, se crean y muestran tarjetas con la información de cada médico.
-Endpoint 2: Recomendaciones Médicas
-URL: https://vps-3858808-x.dattaweb.com:8443/medicina/recomendacion?imc=${encodeURIComponent(imc)}
-Descripción: Proporciona recomendaciones médicas basadas en el IMC del paciente. La variable imc se obtiene del localStorage y se utiliza en la consulta para obtener recomendaciones personalizadas.
-Modificaciones de Event Handling
-Se eliminaron los atributos onClick de los botones en los archivos HTML y se implementaron los manejadores de eventos en los archivos JavaScript correspondientes:
-
-index.html: Eventos para los botones con id="ingresar" e id="enviar" son gestionados en main.js.
-vision.html: El botón con id="continuar" es manejado en vision.js.
-resultados.html: Los botones con id="recargar" e id="boton-verde" son gestionados en resultados.js.
+Instalación
+Uso
+Endpoints
 Estructura del Proyecto
-index.html: Recoge los datos del paciente.
-vision.html: Realiza el test de daltonismo y muestra médicos obtenidos mediante fetch.
-resultados.html: Presenta los resultados del IMC y realiza una consulta para obtener una recomendación médica.
-Instalación y Uso
-Clona el repositorio:
+Contribución
+Contacto
+Descripción
+Este proyecto consta de tres páginas principales:
+
+index.html: Donde se recopilan los datos del paciente.
+vision.html: Realiza un test de daltonismo y muestra médicos obtenidos mediante una API.
+resultados.html: Toma variables del localStorage y realiza una consulta médica utilizando otra API.
+Instalación
+Clona este repositorio en tu máquina local:
+
 bash
 Copiar código
-git clone https://github.com/tuusuario/tu-repo.git
-Navega a la carpeta del proyecto:
+git clone https://github.com/tu-usuario/tu-repositorio.git
+Navega al directorio del proyecto:
+
 bash
 Copiar código
-cd tu-repo
-Abre los archivos index.html, vision.html y resultados.html en un navegador web para probar las funcionalidades.
-Contribuciones
-Las contribuciones son bienvenidas. Para contribuir:
+cd tu-repositorio
+Abre los archivos HTML en tu navegador para visualizar el proyecto.
+
+Uso
+index.html: Completa el formulario con los datos del paciente y haz clic en "Ingresar" para continuar.
+vision.html: Mueve el mouse por la caja de colores para realizar el test de daltonismo. La información sobre los médicos se mostrará a medida que se obtenga de la API.
+resultados.html: Accede a esta página después de haber completado el test de IMC para recibir recomendaciones médicas basadas en el índice calculado.
+Endpoints
+Endpoint 1: Obtener Médicos
+
+plaintext
+Copiar código
+https://vps-3858808-x.dattaweb.com:8443/medicina/getMedics
+Este endpoint devuelve una lista de médicos que se muestra en la página vision.html.
+
+Endpoint 2: Obtener Recomendación Médica
+
+plaintext
+Copiar código
+https://vps-3858808-x.dattaweb.com:8443/medicina/recomendacion?imc=${encodeURIComponent(imc)}
+Este endpoint proporciona recomendaciones médicas basadas en el IMC. La variable imc se establece dinámicamente según los datos ingresados.
+
+Estructura del Proyecto
+index.html:
+
+Página de entrada donde se recogen los datos del paciente.
+Eventos de botón manejados mediante JavaScript para controlar la navegación.
+vision.html:
+
+Página de test de daltonismo con interacción de mouse.
+Obtención de datos de médicos mediante una API.
+Las tarjetas de médicos se generan dinámicamente a partir del array medicosArray.
+resultados.html:
+
+Muestra recomendaciones médicas basadas en el IMC almacenado en localStorage.
+Botones manejados por eventos JavaScript para redirigir y recargar la página.
+Contribución
+Si deseas contribuir a este proyecto, sigue estos pasos:
 
 Realiza un fork del repositorio.
-Crea una rama para tu funcionalidad (git checkout -b mi-nueva-funcionalidad).
-Realiza tus cambios y haz commit (git commit -am 'Agrega nueva funcionalidad').
-Envía un pull request.
-Licencia
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+Realiza tus cambios y confirma (git commit -am 'Añadir nueva funcionalidad').
+Envía tus cambios al repositorio remoto (git push origin feature/nueva-funcionalidad).
+Abre un pull request.
+Contacto
+Para cualquier consulta o sugerencia, puedes contactar a:
+
+Nombre: Tu Nombre
+Email: tu-email@example.com
+GitHub: tu-usuario
