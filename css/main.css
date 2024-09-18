@@ -293,6 +293,11 @@ p {
   color: #003366;
 }
 
+.card-img-top {
+  width: 3cm;
+  height: 3cm;
+  object-fit: cover;
+}
 
 
 @media (max-width: 575.98px) {

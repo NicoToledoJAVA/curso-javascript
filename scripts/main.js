@@ -1,10 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Inicializar el modal
     var myModal = new bootstrap.Modal(document.getElementById('myModal1'), {
         backdrop: 'static',
         keyboard: false  // También evita que se cierre con la tecla 'Esc'
     });
     myModal.show();
+
+    // Seleccionar los botones 'Enviar' e 'Ingresar' por su ID
+    const ingresarBtn = document.getElementById('ingresar');
+    const enviarBtn = document.getElementById('enviar');
+    
+    // Agregar evento 'click' a los botonesn
+    ingresarBtn.addEventListener('click', function() {
+        storeName();  // Se corrijió esto. Antes tenía un onClick en el HTML. Ahora llama a la función calcularIMC pasando el evento
+    });
+    // Evento 'click' para el botón 'Enviar'
+    enviarBtn.addEventListener('click', function (event) {
+        event.preventDefault();  // Lo sacamos para manejar como entendemos el click, sin recargar la página... Sería
+        calcularIMC(event);  // Se corrijió esto. Antes tenía un onClick en el HTML. Llama a la función para calcular el IMC
+    });
 });
+
 
 
 // Escucha el evento 'shown.bs.modal' del modal con id 'myModal3'

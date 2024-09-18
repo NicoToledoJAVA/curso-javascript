@@ -4,9 +4,11 @@ const peso = localStorage.getItem('peso');
 const estatura = localStorage.getItem('estatura');
 const imc = localStorage.getItem('IMC');
 const diagnostico = localStorage.getItem('diagnostico');
-// Selecciona el elemento con id 'recomendacion'
-const recomendacionElement = document.getElementById('recomendacion');
 
+// Selecciona los elementos por su ID
+const recomendacionElement = document.getElementById('recomendacion');
+const botonVerde = document.getElementById('boton-verde');
+const botonRecargar = document.getElementById('recargar');
 
 // Insertar los valores en el DOM
 document.getElementById('nombre').textContent = nombre;
@@ -14,6 +16,14 @@ document.getElementById('peso').textContent = peso;
 document.getElementById('estatura').textContent = estatura;
 document.getElementById('imc').textContent = imc;
 document.getElementById('diagnostico').textContent = diagnostico;
+
+// Evento para el botón 'Consultar'
+botonVerde.addEventListener('click', verDoctor);
+
+// Evento para el botón 'Recargar Página'
+botonRecargar.addEventListener('click', function () {
+    window.location.reload();
+});
 
 function verDoctor() {
 
@@ -42,7 +52,7 @@ function verDoctor() {
                 recomendacionElement.classList.add('doctor');
 
                 recomendacionElement.textContent = respuesta; // Ejemplo de cómo insertar el texto en el DOM
-               
+
 
             })
             .catch(error => {
