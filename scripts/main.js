@@ -23,10 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Escucha el evento 'shown.bs.modal' del modal con id 'myModal3'
-document.getElementById('myModal3').addEventListener('shown.bs.modal', function () {
-    cargarTestVision();
-});
+
 
 
 
